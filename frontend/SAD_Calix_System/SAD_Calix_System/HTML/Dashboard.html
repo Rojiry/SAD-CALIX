@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dashboard | CALIX Management System</title>
+    <link rel="stylesheet" href="../CSS/dashboard.css">
+</head>
+<body>
+    <div class="dashboard-layout">
+        <aside class="sidebar">
+            <img src="../Assets/Logo1.png" alt="CALIX Glass and Aluminum Fabrication">
+
+            <nav aria-label="Main navigation">
+                <a class="active" href="#">Dashboard</a>
+                <a href="#">Sales</a>
+                <a href="#">Inventory</a>
+                <a href="#">Projects</a>
+                <a href="#">Customers</a>
+                <a href="#">Reports</a>
+            </nav>
+
+            <a class="logout" href="LoginPage.html">Logout</a>
+        </aside>
+
+        <main class="dashboard-content">
+            <header>
+                <div>
+                    <h1>Dashboard</h1>
+                    <p>Welcome back to the CALIX Management System.</p>
+                </div>
+                <button id="menuButton" type="button" aria-label="Open navigation">☰</button>
+            </header>
+
+            <section class="summary-grid" aria-label="Summary">
+                <article><span>Monthly Sales</span><strong>—</strong></article>
+                <article><span>Inventory Items</span><strong>—</strong></article>
+                <article><span>Low Stock</span><strong>—</strong></article>
+                <article><span>Active Projects</span><strong>—</strong></article>
+            </section>
+
+            <section class="content-grid">
+                <article class="panel">
+                    <h2>Recent Sales</h2>
+                    <p>Sales records will appear here.</p>
+                </article>
+
+                <article class="panel">
+                    <h2>Low-stock Items</h2>
+                    <p>Inventory alerts will appear here.</p>
+                </article>
+            </section>
+        </main>
+    </div>
+
+    <script src="../Functions/dashboard.js"></script>
+</body>
+</html>
