@@ -1,0 +1,153 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    color: #1f2c32;
+    background: #f5f2ed;
+    font-family: "Segoe UI", sans-serif;
+}
+
+.page-shell {
+    display: grid;
+    grid-template-columns: 57.5% 42.5%;
+    min-height: 100vh;
+}
+
+.left-panel {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px;
+    color: white;
+    background: linear-gradient(145deg, #3e6371, #263b44);
+}
+
+.left-panel img {
+    width: 100%;
+    max-width: 320px;
+    margin-bottom: 40px;
+}
+
+.panel-title {
+    margin: 0 0 20px;
+    color: #d9e1e4;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+}
+
+.left-panel h1 {
+    margin: 0 0 16px;
+    font-size: 56px;
+    font-weight: 500;
+}
+
+.welcome-text {
+    max-width: 430px;
+    margin: 0;
+    color: #d9e1e4;
+    font-size: 17px;
+    line-height: 1.6;
+}
+
+.right-panel {
+    display: grid;
+    place-items: center;
+    padding: 32px;
+}
+
+.login-form {
+    width: 100%;
+    max-width: 400px;
+}
+
+.login-form h2 {
+    margin: 0 0 8px;
+    font-size: 44px;
+}
+
+.subtext {
+    margin: 0 0 32px;
+    color: #747b7f;
+}
+
+.login-form label {
+    display: block;
+    margin: 16px 0 7px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.login-form input,
+.login-form button {
+    width: 100%;
+    height: 48px;
+    border-radius: 8px;
+    font: inherit;
+}
+
+.login-form input {
+    padding: 0 14px;
+    border: 1px solid #d8d6d2;
+    outline: none;
+    background: #faf9f7;
+}
+
+.login-form input:focus {
+    border-color: #7899a5;
+    box-shadow: 0 0 0 3px #7899a526;
+}
+
+.login-form input.invalid {
+    border-color: #b42318;
+}
+
+.error-message {
+    min-height: 18px;
+    margin: 7px 0 0;
+    color: #b42318;
+    font-size: 12px;
+}
+
+.login-form button {
+    margin-top: 14px;
+    border: 0;
+    color: white;
+    background: #304d58;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.login-form button:hover {
+    background: #263b44;
+}
+
+@media (max-width: 700px) {
+    .page-shell {
+        grid-template-columns: 100%;
+    }
+
+    .left-panel {
+        min-height: 38vh;
+        padding: 32px;
+    }
+
+    .left-panel img {
+        width: 230px;
+        margin-bottom: 20px;
+    }
+
+    .left-panel h1 {
+        font-size: 32px;
+    }
+
+    .right-panel {
+        padding: 40px 24px;
+    }
+}

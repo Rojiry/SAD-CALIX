@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Home | CALIX Management System</title>
+    <link rel="stylesheet" href="../CSS/dashboard.css">
+</head>
+<body>
+    <div class="dashboard-layout">
+        <aside class="sidebar">
+            <img class="sidebar-logo" src="../Assets/Logo1.png" alt="CALIX Glass and Aluminum Fabrication">
+
+            <nav aria-label="Main navigation">
+                <a class="active" href="#"><svg class="icon" viewBox="0 0 24 24"><path d="m3 11 9-8 9 8"></path><path d="M5 10v10h14V10"></path></svg>Home</a>
+                <a href="#"><svg class="icon" viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6z"></path><path d="M15 3v5h5M9 13h7M9 17h5"></path></svg>Quotation</a>
+                <a href="#"><svg class="icon" viewBox="0 0 24 24"><path d="M4 5h16v14H4z"></path><path d="M4 10h16M9 5v14"></path></svg>Sales</a>
+                <a href="#"><svg class="icon" viewBox="0 0 24 24"><path d="m3 11 9-8 9 8"></path><path d="M5 10v10h14V10"></path><path d="M9 20v-6h6v6"></path></svg>Inventory</a>
+                <a href="#"><svg class="icon" viewBox="0 0 24 24"><path d="m12 3 9 9-9 9-9-9z"></path></svg>Projects</a>
+                <a href="#"><svg class="icon" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"></circle><circle cx="17" cy="9" r="2"></circle><path d="M3 20a6 6 0 0 1 12 0M14 15a5 5 0 0 1 7 5"></path></svg>Customers</a>
+                <a href="#"><svg class="icon" viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6z"></path><path d="M15 3v5h5M9 12h7M9 16h7"></path></svg>Reports</a>
+                <a id="settingsLink" href="#"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"></circle><path d="M19 12a7 7 0 0 0-.1-1l2-1.5-2-3.5-2.4 1a8 8 0 0 0-1.7-1L14.5 3h-5L9 6a8 8 0 0 0-1.7 1L5 6 3 9.5 5.1 11a7 7 0 0 0 0 2L3 14.5 5 18l2.3-1a8 8 0 0 0 1.7 1l.5 3h5l.5-3a8 8 0 0 0 1.7-1l2.3 1 2-3.5-2.1-1.5a7 7 0 0 0 .1-1z"></path></svg>Settings</a>
+            </nav>
+
+            <a class="logout" href="LoginPage.html"><svg class="icon" viewBox="0 0 24 24"><path d="M10 4H4v16h6M14 8l4 4-4 4M8 12h10"></path></svg>Logout</a>
+        </aside>
+
+        <main class="main-area">
+            <header class="topbar">
+                <button id="menuButton" type="button" aria-label="Open navigation">☰</button>
+
+                <div class="header-search">
+                    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-4-4"></path></svg>
+                    <input type="search" placeholder="Search" aria-label="Search">
+                </div>
+
+                <div class="account">
+                    <strong id="userRole">User</strong>
+                    <svg class="account-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg>
+                </div>
+            </header>
+
+            <div class="dashboard-content">
+                <section class="page-heading">
+                    <h1>Home</h1>
+                    <p>Welcome back,</p>
+                </section>
+
+                <section class="summary-grid" aria-label="Home summary">
+                    <article class="summary-card">
+                        <div class="card-heading">
+                            <h2>Inventory</h2>
+                            <svg class="small-icon" viewBox="0 0 24 24"><path d="m5 11 7-6 7 6v8H5z"></path></svg>
+                        </div>
+                    </article>
+
+                    <article class="summary-card">
+                        <div class="card-heading">
+                            <h2>Logs</h2>
+                            <svg class="small-icon" viewBox="0 0 24 24"><path d="M6 4h12v16H6z"></path><path d="M9 8h6M9 12h6M9 16h4"></path></svg>
+                        </div>
+                    </article>
+
+                    <article class="summary-card">
+                        <div class="card-heading">
+                            <h2>Recent Projects</h2>
+                            <svg class="small-icon" viewBox="0 0 24 24"><path d="M4 7h6l2 2h8v10H4z"></path></svg>
+                        </div>
+                    </article>
+                </section>
+
+                <section class="lower-grid">
+                    <div class="projects-column">
+                        <h2>Pending Projects</h2>
+                        <article class="large-card"></article>
+                    </div>
+
+                    <div class="todo-column">
+                        <h2>Your to-do list</h2>
+                        <article class="todo-card"></article>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <script src="../Functions/dashboard.js"></script>
+</body>
+</html>
