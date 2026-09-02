@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Create Inventory | CALIX Management System</title>
+    <link rel="stylesheet" href="../CSS/app.css">
+    <link rel="stylesheet" href="../CSS/inventory.css">
+</head>
+<body data-page="inventory-create">
+    <div class="dashboard-layout">
+        <aside id="sidebar" class="sidebar" aria-label="CALIX navigation"></aside>
+        <button id="sidebarOverlay" class="sidebar-overlay" type="button" aria-label="Close navigation"></button>
+
+        <main class="main-area">
+            <header id="topbar" class="topbar"></header>
+
+            <div class="workspace-content">
+                <section class="page-heading">
+                    <div>
+                        <span class="breadcrumb">Inventory / Create Inventory</span>
+                        <h1>Create Inventory Item</h1>
+                        <p>Add a glass, aluminum, hardware, or installation material to the CALIX inventory.</p>
+                    </div>
+                    <div class="page-actions">
+                        <a class="button secondary" href="ViewInventory.html">View Inventory</a>
+                    </div>
+                </section>
+
+                <div id="inventorySuccess" class="notice" role="status">
+                    <span id="inventorySuccessText"></span>
+                    <a href="ViewInventory.html">View item list</a>
+                </div>
+                <div id="inventoryError" class="notice error" role="alert"></div>
+
+                <section class="content-columns">
+                    <form id="inventoryForm" class="panel content-main inventory-form-panel" novalidate>
+                        <div class="panel-header">
+                            <div><h2>Item Information</h2><p>Fields marked with an asterisk are required.</p></div>
+                        </div>
+
+                        <div class="panel-body">
+                            <section class="form-section">
+                                <h3 class="form-section-title">Basic Details</h3>
+                                <div class="form-row">
+                                    <div class="form-field half">
+                                        <label for="itemCode">Item Code <span class="required">*</span></label>
+                                        <input id="itemCode" name="item_code" type="text" maxlength="30" placeholder="Example: GLS-001" required>
+                                        <p class="field-help">A unique code is used to find and reference this item.</p>
+                                    </div>
+
+                                    <div class="form-field half">
+                                        <label for="itemName">Item Name <span class="required">*</span></label>
+                                        <input id="itemName" name="item_name" type="text" maxlength="150" placeholder="Example: Clear Glass 6mm" required>
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-field half">
+                                        <label for="category">Category <span class="required">*</span></label>
+                                        <select id="category" name="category" required>
+                                            <option value="">Select category</option>
+                                            <option value="Glass">Glass</option>
+                                            <option value="Aluminum">Aluminum</option>
+                                            <option value="Hardware">Hardware</option>
+                                            <option value="Sealant">Sealant</option>
+                                            <option value="Accessory">Accessory</option>
+                                            <option value="Other">Other</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-field half">
+                                        <label for="unit">Unit of Measurement <span class="required">*</span></label>
+                                        <select id="unit" name="unit" required>
+                                            <option value="">Select unit</option>
+                                            <option value="Piece">Piece</option>
+                                            <option value="Sheet">Sheet</option>
+                                            <option value="Length">Length</option>
+                                            <option value="Set">Set</option>
+                                            <option value="Box">Box</option>
+                                            <option value="Tube">Tube</option>
+                                            <option value="Meter">Meter</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-field">
+                                        <label for="description">Description</label>
+                                        <textarea id="description" name="description" maxlength="500" placeholder="Add the size, color, finish, thickness, or other identifying details."></textarea>
+                                    </div>
+                                </div>
+                            </section>
+
+                            <section class="form-section">
+                                <h3 class="form-section-title">Stock and Pricing</h3>
+                                <div class="form-row">
+                                    <div class="form-field half">
+                                        <label for="quantity">In Stock <span class="required">*</span></label>
+                                        <input id="quantity" name="quantity" type="number" min="0" step="0.01" value="0" required>
+                                        <p class="field-help">The quantity currently available when this item is created.</p>
+                                    </div>
+
+                                    <div class="form-field half">
+                                        <label for="reorderLevel">Reorder Level <span class="required">*</span></label>
+                                        <input id="reorderLevel" name="reorder_level" type="number" min="0" step="0.01" value="5" required>
+                                        <p class="field-help">CALIX is warned when stock reaches this amount.</p>
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-field half">
+                                        <label for="unitCost">Unit Cost (₱) <span class="required">*</span></label>
+                                        <input id="unitCost" name="unit_cost" type="number" min="0" step="0.01" placeholder="0.00" required>
+                                    </div>
+
+                                    <div class="form-field half">
+                                        <label for="sellingPrice">Selling Price (₱) <span class="required">*</span></label>
+                                        <input id="sellingPrice" name="selling_price" type="number" min="0" step="0.01" placeholder="0.00" required>
+                                    </div>
+                                </div>
+                            </section>
+
+                            <section class="form-section">
+                                <h3 class="form-section-title">Source and Storage</h3>
+                                <div class="form-row">
+                                    <div class="form-field half">
+                                        <label for="supplier">Supplier</label>
+                                        <input id="supplier" name="supplier" type="text" maxlength="150" placeholder="Supplier or distributor">
+                                    </div>
+
+                                    <div class="form-field half">
+                                        <label for="location">Storage Location</label>
+                                        <input id="location" name="location" type="text" maxlength="100" placeholder="Example: Rack A-01">
+                                    </div>
+                                </div>
+                            </section>
+
+                            <div class="form-actions">
+                                <button class="button secondary" type="reset">Clear Form</button>
+                                <button class="button" type="submit">Save Inventory Item</button>
+                            </div>
+                        </div>
+                    </form>
+
+                    <aside class="content-side">
+                        <article class="panel side-card">
+                            <h2>Item Preview</h2>
+                            <span id="previewCode" class="inventory-preview-code">ITEM CODE</span>
+                            <h3 id="previewName" class="preview-name">New inventory item</h3>
+                            <p id="previewCategory" class="preview-category">Choose a category</p>
+                            <div class="stock-preview">
+                                <div><span>In Stock</span><strong id="previewStock">0</strong></div>
+                                <div><span>Unit</span><strong id="previewUnit">Unit</strong></div>
+                            </div>
+                            <dl class="detail-list">
+                                <div class="detail-row"><dt>Unit cost</dt><dd id="previewCost">₱0.00</dd></div>
+                                <div class="detail-row"><dt>Selling price</dt><dd id="previewPrice">₱0.00</dd></div>
+                                <div class="detail-row"><dt>Status</dt><dd><span id="previewStatus" class="status-chip out">Out of Stock</span></dd></div>
+                            </dl>
+                        </article>
+
+                    </aside>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <script src="../Functions/app.js"></script>
+    <script src="../Functions/config.js"></script>
+    <script src="../Functions/inventory-data.js"></script>
+    <script src="../Functions/inventory-create.js"></script>
+</body>
+</html>

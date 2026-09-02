@@ -1,0 +1,142 @@
+.dashboard-welcome {
+    margin-bottom: 21px;
+}
+
+.dashboard-welcome h1 {
+    margin: 0;
+    color: #2452c7;
+    font-size: 27px;
+}
+
+.dashboard-welcome p {
+    margin: 6px 0 0;
+    color: #7a858a;
+    font-size: 14px;
+}
+
+.workspace-panel {
+    margin-top: 2px;
+}
+
+.module-grid {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    gap: 16px;
+}
+
+.module-card {
+    display: flex;
+    flex-direction: column;
+    width: calc(33.333% - 11px);
+    min-height: 230px;
+    padding: 17px;
+    background: #f9f7f3;
+    border: 1px solid #e2ded7;
+    border-radius: 10px;
+}
+
+.module-card.inventory-module {
+    background: #f5f8f9;
+    border-color: #9eb6bf;
+    box-shadow: inset 0 3px 0 #426572;
+}
+
+.module-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    color: #304d58;
+    background: #e9eff1;
+    border-radius: 9px;
+}
+
+.module-icon svg {
+    width: 22px;
+    height: 22px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.module-card h3 {
+    margin: 16px 0 6px;
+    color: #263b44;
+    font-size: 17px;
+}
+
+.module-card p {
+    min-height: 42px;
+    margin: 0 0 18px;
+    color: #758087;
+    font-size: 13px;
+    line-height: 1.55;
+}
+
+.module-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 39px;
+    margin-top: auto;
+    padding: 9px 11px;
+    color: #ffffff;
+    background: #304d58;
+    border: 1px solid #304d58;
+    border-radius: 7px;
+    font-size: 13px;
+    font-weight: 650;
+    text-decoration: none;
+}
+
+.module-link:hover {
+    background: #263b44;
+    border-color: #263b44;
+}
+
+.module-link span {
+    font-size: 18px;
+}
+
+.module-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: auto;
+}
+
+.module-actions .module-link {
+    flex: 1;
+    margin-top: 0;
+}
+
+.module-link.secondary-link {
+    color: #304d58;
+    background: #ffffff;
+    border-color: #aabac0;
+}
+
+.module-link.secondary-link:hover {
+    background: #eef3f4;
+}
+
+@media (max-width: 1100px) {
+    .module-card {
+        width: calc(50% - 8px);
+    }
+}
+
+@media (max-width: 650px) {
+    .module-card {
+        width: 100%;
+    }
+}
+
+@media (max-width: 420px) {
+    .module-actions {
+        flex-direction: column;
+    }
+}
