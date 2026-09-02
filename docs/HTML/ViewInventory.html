@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>View Inventory | CALIX Management System</title>
+    <link rel="stylesheet" href="../CSS/app.css">
+    <link rel="stylesheet" href="../CSS/inventory.css">
+</head>
+<body data-page="inventory-view">
+    <div class="dashboard-layout">
+        <aside id="sidebar" class="sidebar" aria-label="CALIX navigation"></aside>
+        <button id="sidebarOverlay" class="sidebar-overlay" type="button" aria-label="Close navigation"></button>
+
+        <main class="main-area">
+            <header id="topbar" class="topbar"></header>
+
+            <div class="workspace-content">
+                <section class="page-heading">
+                    <div>
+                        <span class="breadcrumb">Inventory / View Inventory</span>
+                        <h1>Inventory Records</h1>
+                        <p>Monitor available materials, reorder warnings, prices, suppliers, and storage locations.</p>
+                    </div>
+                    <div class="page-actions">
+                        <a class="button" href="CreateInventory.html">Add Inventory Item</a>
+                    </div>
+                </section>
+
+                <div id="viewSuccess" class="notice" role="status"></div>
+                <div id="viewError" class="notice error" role="alert"></div>
+
+                <section class="metric-row" aria-label="Inventory totals">
+                    <article class="metric-card">
+                        <div class="metric-copy"><span>Total Items</span><strong id="totalItems">0</strong></div>
+                        <div class="metric-icon-box"><svg class="metric-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8.5 12 4l8 4.5v8L12 21l-8-4.5z"></path><path d="m4 8.5 8 4.5 8-4.5M12 13v8"></path></svg></div>
+                    </article>
+                    <article class="metric-card warning">
+                        <div class="metric-copy"><span>Low Stock</span><strong id="lowStockItems">0</strong></div>
+                        <div class="metric-icon-box"><svg class="metric-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 2 21h20z"></path><path d="M12 9v5M12 18h.01"></path></svg></div>
+                    </article>
+                    <article class="metric-card danger">
+                        <div class="metric-copy"><span>Out of Stock</span><strong id="outOfStockItems">0</strong></div>
+                        <div class="metric-icon-box"><svg class="metric-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="m9 9 6 6M15 9l-6 6"></path></svg></div>
+                    </article>
+                    <article class="metric-card">
+                        <div class="metric-copy"><span>Inventory Value</span><strong id="inventoryValue">₱0</strong></div>
+                        <div class="metric-icon-box"><svg class="metric-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16v12H4zM7 4h10v3"></path><path d="M8 13h8M12 9v8"></path></svg></div>
+                    </article>
+                </section>
+
+                <section class="panel">
+                    <div class="panel-header">
+                        <div><h2>Inventory List</h2><p>Use Adjust to record incoming or released stock.</p></div>
+                    </div>
+
+                    <div class="toolbar">
+                        <label class="toolbar-search">
+                            <span class="sr-only">Search inventory</span>
+                            <input id="inventorySearch" type="search" placeholder="Search code, item, supplier, or location" autocomplete="off">
+                        </label>
+                        <label>
+                            <span class="sr-only">Filter by category</span>
+                            <select id="categoryFilter"><option value="">All categories</option></select>
+                        </label>
+                        <label>
+                            <span class="sr-only">Filter by stock status</span>
+                            <select id="statusFilter">
+                                <option value="">All stock status</option>
+                                <option value="In Stock">In Stock</option>
+                                <option value="Low Stock">Low Stock</option>
+                                <option value="Out of Stock">Out of Stock</option>
+                            </select>
+                        </label>
+                        <div class="toolbar-actions">
+                            <button id="exportInventory" class="button secondary" type="button">Export CSV</button>
+                        </div>
+                    </div>
+
+                    <div class="table-wrap">
+                        <table class="data-table inventory-table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Item Code</th>
+                                    <th scope="col">Item</th>
+                                    <th scope="col">Category</th>
+                                    <th scope="col">Stock</th>
+                                    <th scope="col">Reorder At</th>
+                                    <th scope="col">Unit Cost</th>
+                                    <th scope="col">Selling Price</th>
+                                    <th scope="col">Location / Supplier</th>
+                                    <th scope="col">Status</th>
+                                    <th scope="col">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="inventoryTableBody"></tbody>
+                        </table>
+                    </div>
+
+                    <footer class="table-footer">
+                        <span id="inventoryResultCount" class="inventory-result-note">Showing 0 items</span>
+                        <div class="pagination">
+                            <button id="previousPage" type="button" disabled>Previous</button>
+                            <span id="pageNumber">Page 1 of 1</span>
+                            <button id="nextPage" type="button" disabled>Next</button>
+                        </div>
+                    </footer>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <dialog id="detailsDialog">
+        <div class="dialog-header">
+            <h2 id="detailTitle">Inventory Details</h2>
+            <button class="dialog-close" type="button" data-close-dialog aria-label="Close details">×</button>
+        </div>
+        <div class="dialog-body">
+            <dl class="detail-list">
+                <div class="detail-row"><dt>Item code</dt><dd id="detailCode"></dd></div>
+                <div class="detail-row"><dt>Category</dt><dd id="detailCategory"></dd></div>
+                <div class="detail-row"><dt>Unit</dt><dd id="detailUnit"></dd></div>
+                <div class="detail-row"><dt>Available quantity</dt><dd id="detailQuantity"></dd></div>
+                <div class="detail-row"><dt>Reorder level</dt><dd id="detailReorder"></dd></div>
+                <div class="detail-row"><dt>Unit cost</dt><dd id="detailCost"></dd></div>
+                <div class="detail-row"><dt>Selling price</dt><dd id="detailPrice"></dd></div>
+                <div class="detail-row"><dt>Supplier</dt><dd id="detailSupplier"></dd></div>
+                <div class="detail-row"><dt>Storage location</dt><dd id="detailLocation"></dd></div>
+            </dl>
+            <p id="detailDescription" class="details-description"></p>
+            <div class="dialog-actions"><button class="button secondary" type="button" data-close-dialog>Close</button></div>
+        </div>
+    </dialog>
+
+    <dialog id="adjustDialog">
+        <div class="dialog-header">
+            <h2>Adjust Stock</h2>
+            <button class="dialog-close" type="button" data-close-dialog aria-label="Close stock adjustment">×</button>
+        </div>
+        <form id="adjustStockForm" class="dialog-body dialog-form">
+            <input id="adjustItemId" type="hidden">
+            <p id="adjustItemName" class="dialog-item-name"></p>
+
+            <div class="form-field">
+                <label for="movementType">Movement <span class="required">*</span></label>
+                <select id="movementType" required>
+                    <option value="stock_in">Stock In — delivery or return</option>
+                    <option value="stock_out">Stock Out — project release or damage</option>
+                </select>
+            </div>
+
+            <div class="form-field">
+                <label for="movementQuantity">Quantity <span class="required">*</span></label>
+                <input id="movementQuantity" type="number" min="0.01" step="0.01" required>
+            </div>
+
+            <div class="form-field">
+                <label for="movementReason">Reason or Reference <span class="required">*</span></label>
+                <textarea id="movementReason" maxlength="250" placeholder="Example: Supplier delivery DR-1042 or released to Project P-008" required></textarea>
+            </div>
+
+            <p class="movement-note">Each adjustment is kept as a separate movement record so stock changes can be audited after the database is connected.</p>
+            <div class="dialog-actions">
+                <button class="button secondary" type="button" data-close-dialog>Cancel</button>
+                <button class="button" type="submit">Save Adjustment</button>
+            </div>
+        </form>
+    </dialog>
+
+    <script src="../Functions/app.js"></script>
+    <script src="../Functions/config.js"></script>
+    <script src="../Functions/inventory-data.js"></script>
+    <script src="../Functions/inventory-view.js"></script>
+</body>
+</html>

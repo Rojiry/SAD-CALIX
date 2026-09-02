@@ -1,0 +1,249 @@
+.workspace-card-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    width: 100%;
+}
+
+.workspace-card {
+    width: calc(33.333% - 10px);
+    min-height: 150px;
+    padding: 18px;
+    background: #ffffff;
+    border: 1px solid #e2ded7;
+    border-radius: 11px;
+    box-shadow: 0 5px 18px #263b440a;
+}
+
+.workspace-card h2 {
+    margin: 0 0 8px;
+    color: #304d58;
+    font-size: 16px;
+}
+
+.workspace-card p {
+    margin: 0;
+    color: #727d82;
+    font-size: 13px;
+    line-height: 1.55;
+}
+
+.workspace-card .button {
+    margin-top: 17px;
+}
+
+.document-number {
+    color: #2452c7;
+    font-weight: 700;
+}
+
+.line-items {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.line-items th,
+.line-items td {
+    padding: 9px 7px;
+    border-bottom: 1px solid #e9e5df;
+    font-size: 12px;
+    text-align: left;
+}
+
+.line-items th {
+    color: #66737a;
+    background: #faf9f7;
+    font-weight: 700;
+}
+
+.line-items input,
+.line-items select {
+    width: 100%;
+    min-width: 90px;
+    height: 38px;
+    padding: 7px 8px;
+    color: #202d34;
+    background: #ffffff;
+    border: 1px solid #cfd3d2;
+    border-radius: 6px;
+    font-size: 12px;
+}
+
+.line-items .item-description {
+    min-width: 190px;
+}
+
+.line-items .line-total {
+    min-width: 100px;
+    color: #304d58;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.line-items-wrap {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.line-section-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    padding-bottom: 14px;
+}
+
+.line-section-heading .form-section-title {
+    margin: 0;
+}
+
+.quotation-totals {
+    width: 100%;
+    max-width: 340px;
+    margin: 20px 0 0 auto;
+}
+
+.quotation-total-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 8px 0;
+    color: #667279;
+    font-size: 13px;
+}
+
+.quotation-total-row.grand-total {
+    margin-top: 5px;
+    padding-top: 13px;
+    color: #263b44;
+    border-top: 1px solid #dcd8d1;
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.discount-input {
+    width: 90px;
+    min-height: 36px;
+    padding: 6px;
+    color: #202d34;
+    background: #ffffff;
+    border: 1px solid #cfd3d2;
+    border-radius: 6px;
+}
+
+.report-date-field {
+    margin-top: 15px;
+}
+
+.report-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.report-option {
+    width: calc(50% - 7px);
+    padding: 17px;
+    background: #f9f7f3;
+    border: 1px solid #e2ded7;
+    border-radius: 9px;
+}
+
+.report-option h3 {
+    margin: 0 0 6px;
+    color: #304d58;
+    font-size: 14px;
+}
+
+.report-option p {
+    margin: 0 0 14px;
+    color: #748087;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.settings-list {
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+}
+
+.setting-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 15px;
+    background: #f9f7f3;
+    border: 1px solid #e4e0da;
+    border-radius: 8px;
+}
+
+.setting-row strong,
+.setting-row small {
+    display: block;
+}
+
+.setting-row strong {
+    color: #304d58;
+    font-size: 14px;
+}
+
+.setting-row small {
+    margin-top: 4px;
+    color: #7b858b;
+    font-size: 12px;
+}
+
+.template-message {
+    min-height: 125px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+    color: #7b858a;
+    background: #faf9f7;
+    border: 1px dashed #cdd3d4;
+    border-radius: 9px;
+    font-size: 13px;
+    text-align: center;
+}
+
+.blank-canvas {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 470px;
+    background: #ffffff;
+    border-style: dashed;
+}
+
+.blank-canvas-content {
+    padding: 30px;
+    color: #8a9499;
+    text-align: center;
+}
+
+.blank-canvas-content p {
+    margin: 12px 0 0;
+    font-size: 13px;
+}
+
+@media (max-width: 900px) {
+    .workspace-card {
+        width: calc(50% - 8px);
+    }
+}
+
+@media (max-width: 650px) {
+    .workspace-card,
+    .report-option {
+        width: 100%;
+    }
+
+    .setting-row {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}

@@ -1,0 +1,115 @@
+.inventory-form-panel .panel-body {
+    padding-bottom: 22px;
+}
+
+.inventory-preview-code {
+    display: inline-block;
+    margin-bottom: 13px;
+    padding: 6px 9px;
+    color: #2452c7;
+    background: #edf2ff;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.preview-name {
+    margin: 0 0 4px;
+    color: #263b44;
+    font-size: 18px;
+}
+
+.preview-category {
+    margin-bottom: 16px !important;
+}
+
+.stock-preview {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 14px;
+    margin: 16px 0;
+    padding: 14px;
+    background: #f7f5f1;
+    border: 1px solid #e3dfd9;
+    border-radius: 8px;
+}
+
+.stock-preview span,
+.stock-preview strong {
+    display: block;
+}
+
+.stock-preview span {
+    margin-bottom: 4px;
+    color: #7b858a;
+    font-size: 12px;
+}
+
+.stock-preview strong {
+    color: #304d58;
+    font-size: 22px;
+}
+
+.inventory-table {
+    min-width: 1160px;
+}
+
+.stock-number {
+    color: #263b44;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.stock-number.low {
+    color: #966200;
+}
+
+.stock-number.out {
+    color: #a02c2c;
+}
+
+.inventory-name-cell {
+    min-width: 190px;
+}
+
+.location-cell {
+    min-width: 140px;
+}
+
+.inventory-result-note {
+    color: #7c878c;
+    font-size: 12px;
+}
+
+.dialog-item-name {
+    margin: 0 0 17px;
+    padding: 12px;
+    color: #304d58;
+    background: #f6f4f0;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 650;
+}
+
+.movement-note {
+    margin: 15px 0 0;
+    color: #778288;
+    font-size: 12px;
+    line-height: 1.45;
+}
+
+.details-description {
+    margin: 17px 0 0;
+    padding-top: 15px;
+    color: #667279;
+    border-top: 1px solid #e8e4de;
+    font-size: 13px;
+    line-height: 1.55;
+}
+
+@media (max-width: 650px) {
+    .inventory-form-panel .panel-body {
+        padding: 17px;
+    }
+}
